@@ -1,0 +1,28 @@
+{
+    "name": "gocache/cdn",
+    "description": "Modulo da GoCache para Magento 2",
+    "require": {
+        "php": ">=7.3",
+        
+        "magento/magento-composer-installer": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.1",
+    "license": "BSD-3-Clause",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "GoCache\\CDN\\": ""
+        }
+    },
+    "extra": {
+        "map": [
+            [
+                "*",
+                "GoCache/CDN"
+            ]
+        ]
+    }
+}

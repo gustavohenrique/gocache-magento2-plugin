@@ -1,0 +1,88 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="system">
+            <group id="full_page_cache">
+                <group id="gocache" translate="label" showInDefault="1" showInWebsite="0" showInStore="0" sortOrder="615">
+                    <label>Configuração da GoGache</label>
+                    <comment>
+                        <![CDATA[Para usar este módulo você necessita de uma conta na GoCache  (
+                        <a href="https://painel.gocache.com.br/trial" target="_blank">Criar uma conta</a>). ]]>
+                    </comment>
+                    <field id="token" type="text" translate="label comment" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>GoCache Token</label>
+                        <backend_model>Magento\PageCache\Model\System\Config\Backend\Varnish</backend_model>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="main_domain" type="text" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>GoCache Main Domain</label>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="gocache_test_connect_wizard" translate="button_label" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label/>
+                        <button_label>Validar Credenciais</button_label>
+                        <frontend_model>GoCache\CDN\Block\Adminhtml\System\Config\TestToken</frontend_model>
+                    </field>
+                    <field id="smartcache" type="select" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>SmartCache</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="smart_ttl" type="select" translate="label comment" sortOrder="25" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Tempo de expiração de cache SmartCache</label>
+                        <source_model>GoCache\CDN\Model\System\Config\Source\TtlCdn</source_model>
+                    </field>
+
+                    <field id="cache_ttl" type="select" translate="label comment" sortOrder="25" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Tempo de expiração de cache estático na CDN</label>
+                        <source_model>GoCache\CDN\Model\System\Config\Source\TtlCdn</source_model>
+                    </field>
+                    <field id="expires_ttl" type="select" translate="label comment" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Tempo de expiração de cache no browser</label>
+                        <source_model>GoCache\CDN\Model\System\Config\Source\TtlBrowser</source_model>
+                    </field>
+                    <field id="enable_log" type="select" translate="label comment" sortOrder="35" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Log de interação com a GoCache</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+
+                    <field id="textarea_urls" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Limpar Cache das URLs</label>
+                         <comment>
+                            <![CDATA[Por favor, digite uma URL por linha.]]>
+                        </comment>
+                    </field>
+                    
+                    <field id="gocache_clear_urls" translate="button_label" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label/>
+                        <button_label>Limpar URLs</button_label>
+                        <frontend_model>GoCache\CDN\Block\Adminhtml\System\Config\LimparUrl</frontend_model>
+                    </field>
+
+                    <field id="gocache_clear_all" translate="button_label" sortOrder="61" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label/>
+                        <button_label>Limpar todo o cache</button_label>
+                        <frontend_model>GoCache\CDN\Block\Adminhtml\System\Config\LimparTudo</frontend_model>
+                    </field>
+
+
+                    <field id="gocache_clear_images" translate="button_label" sortOrder="62" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label/>
+                        <button_label>Limpar Imagens</button_label>
+                        <frontend_model>GoCache\CDN\Block\Adminhtml\System\Config\LimparImagens</frontend_model>
+                    </field>
+
+
+
+                    <field id="gocache_clear_js" translate="button_label" sortOrder="63" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label/>
+                        <button_label>Limpar JS/CSS</button_label>
+                        <frontend_model>GoCache\CDN\Block\Adminhtml\System\Config\LimparJS</frontend_model>
+                    </field>
+
+
+                    
+
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

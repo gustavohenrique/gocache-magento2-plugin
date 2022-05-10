@@ -1,0 +1,9 @@
+<?php
+// @codingStandardsIgnoreFile
+?>
+<button class="action-default scalable save primary ui-button ui-corner-all ui-widget" type="button" id="<?= $block->getHtmlId() ?>" data-mage-init='{"LimparJS":{
+    "url": "<?= /* @escapeNotVerified */ $block->getAjaxUrl() ?>",
+    "elementId": "<?= $block->getHtmlId() ?>",
+    "fieldMapping": "<?= /* @escapeNotVerified */ $block->getFieldMapping() ?>"}, "validation": {}}'>
+    <span><span><span id="<?= $block->getHtmlId() ?>_result"><?= $block->escapeHtml($block->getButtonLabel()) ?></span></span></span>
+</button>
