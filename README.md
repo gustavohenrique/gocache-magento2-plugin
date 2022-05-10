@@ -2,6 +2,8 @@
 
 > Gerencia configurações e limpeza de cache
 
+![](video.gif)
+
 ## Funcionalidades
 
 - Configurar tempo de cache

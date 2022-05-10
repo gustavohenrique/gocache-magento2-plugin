@@ -15,8 +15,8 @@ services:
     container_name: magento
     environment:
     ports:
-      - '8080:8080'
-      - '8443:8443'
+      - '80:8080'
+      - '443:8443'
     environment:
       - MAGENTO_USERNAME=user
       - MAGENTO_PASSWORD=Admin123
