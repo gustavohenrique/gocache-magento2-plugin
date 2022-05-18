@@ -58,5 +58,5 @@ php bin/magento cache:clean
 php bin/magento setup:static-content:deploy -f
 ```
 
-Agora acesse a URL `http://localhost:8080/admin` e efetue login com usuário `user` e senha `Admin123`.
+Agora acesse a URL `http://localhost/admin` e efetue login com usuário `user` e senha `Admin123`.
 
