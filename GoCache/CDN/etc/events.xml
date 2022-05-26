@@ -34,4 +34,8 @@
     <event name="clean_media_cache_after">
         <observer name="flush_gocache_clean_media" instance="GoCache\CDN\Observer\FlushMedia"/>
     </event>
+
+    <event name="catalog_product_save_after">
+        <observer name="product_flush" instance="GoCache\CDN\Observer\FlushProduct"/>
+    </event>
 </config>

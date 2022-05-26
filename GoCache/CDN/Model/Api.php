@@ -109,13 +109,25 @@ class Api
         return [self::GOCACHE_TOKEN_HEADER => $token];
     }
 
-    public function purgeByURL($urls){
+    public function purgeByURL($urls, $single = false){
 
-        $urls_ = explode(PHP_EOL, $urls);
+        $body = "";
+        $desc = "GoCache Purge URLS";
+        if(!$single){
+            $urls_ = preg_split('/\r\n|\r|\n/', $urls);
 
-        $out = [];
-        foreach ($urls_ as $key=>$value) {
-            $out[sprintf("urls[%s]", $key)] = $value;
+            $out = [];
+            foreach ($urls_ as $key=>$value) {
+                if(empty($value))
+                    continue;
+                $out[sprintf("urls[%s]", $key)] = $value;
+            }
+            $body = $out;
+        } else {
+            $out = [];
+            $out[sprintf("urls[0]")] = $urls;
+            $body = $out;
+            $desc = "GoCache Purge Product URL";
         }
         
         $domain = $this->helper->getCurrentDomain();
@@ -123,11 +135,11 @@ class Api
         $this->client->setUri($endpoint);
         $header = $this->getTokenHeader($this->config->getToken());
         $this->client->setHeaders($header);
-        $body = $out;
+        //$body = $out;
         $this->client->setParameterPost($body);
         $response = $this->client->request('DELETE');
 
-        $this->info("GOCACHE PURGE DELETE URLS", [
+        $this->info($desc, [
             'url' => $endpoint,
             'header' => $header,
             'body' => $body,
