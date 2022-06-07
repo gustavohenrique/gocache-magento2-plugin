@@ -25,6 +25,10 @@ class Purge
         $this->api->purgeByTags($tags);
     }
 
+    public function purgeByUrl($urls){
+        $this->api->purgeByURL($urls, true);
+    }
+
     public function purgeAll()
     {
         $this->api->purgeAll();
