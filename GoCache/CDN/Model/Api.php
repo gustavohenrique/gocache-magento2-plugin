@@ -162,11 +162,13 @@ class Api
         $this->client->setUri($endpoint);
         $header = $this->getTokenHeader($this->config->getToken());
         $this->client->setHeaders($header);
+
+
         $body = $this->prepareTagsArray($domain, $tags);
         $this->client->setParameterPost($body);
         $response = $this->client->request('DELETE');
 
-        $this->info("GOCACHE PURGE", [
+        $this->info("GOCACHE PURGE TAGS", [
             'url' => $endpoint,
             'header' => $header,
             'body' => $body,

@@ -39,8 +39,11 @@ class FlushProduct implements ObserverInterface
         $product = $observer->getEvent()->getProduct();
         $urlKey = $this->_storeManager->getStore(1)->getBaseUrl() . $product->getUrlKey() . '.html';
 
+        $tags = explode(" ", $product->getName());
+        
+        $this->purge->purgeByTags($tags);
         $this->purge->purgeByUrl($urlKey);
 
-        $this->messageManager->addSuccess(__("O cache da página {$urlKey} foi limpado na GoCache devido a modificações no produto."  ));
+        $this->messageManager->addSuccess(__("O cache do produto " . $product->getName() . " foi limpado na GoCache."  ));
     }
 }

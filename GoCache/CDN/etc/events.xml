@@ -36,6 +36,6 @@
     </event>
 
     <event name="catalog_product_save_after">
-        <observer name="flush_gocache_cdn" instance="GoCache\CDN\Observer\InvalidatePartialCache"/>
+        <observer name="flush_gocache_flush_product" instance="GoCache\CDN\Observer\FlushProduct"/>
     </event>
 </config>
